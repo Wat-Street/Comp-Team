@@ -4,7 +4,14 @@ This repo is for the use of the Comp Team that does Market Research, case studie
 
 # Instructions for Repository
 
-Please make a new branch per major task and create pull requests to origin/master branch. Tag your branch with the corresponding team label and assign one of the required reviewers:
+Please make a new branch per major task and create pull requests to origin/master branch. Please make sure you
+rebase your branch with master before merging your pull request to avoid any merge conflicts!!! This will also keep the commit history linear.
+
+This is unlikely to happen as you will probably not work on each other's team folders.
+
+Make sure your whole team is working off a branch or two (ensure branches are limited to major changes).
+
+Tag your branch with the corresponding team label and assign one of the required reviewers:
 
 - Jaimil
 - Michael
