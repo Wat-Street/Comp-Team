@@ -21,3 +21,16 @@ Spot borrow fees also exist. Rate and quantity depend on the liquidity and short
 Borrow fees are paid hourly.
 
 More info @ https://poloniex.com/profile/fee-tier/spot-trading
+
+Binance:
+SSV/USDT = 22.85
+FXS/USDT = 6.657
+PERL/USDT = 0.01965
+RDNT/USDT = 0.3286
+GNS/USDT = 4.862
+NEAR/USDT = 1.639
+OP/USDT = 1.503
+RPL/USDT = 49.85
+LDO/USDT = 2.303
+TRU/USDT = 0.0446
+ARB/USDT = 1.2222
