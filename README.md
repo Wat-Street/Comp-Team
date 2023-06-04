@@ -15,10 +15,13 @@ Tag your branch with the corresponding team label and assign one of the required
 
 - Jaimil
 - Michael
-  The reason for this is to learn how to collaborate, keep consistency + standards, and document our work for future devs and reference.
+
+The reason for this is to learn how to collaborate, keep consistency + standards, and document our work for future devs and reference.
 
 ./delta is the directory for all of Delta team's work
+
 ./gamma is the directory for all of Gamma team's work
+
 ./theta is the directory for all of Theta team's work
 
 See corresponding README's in each subfolder for more information
