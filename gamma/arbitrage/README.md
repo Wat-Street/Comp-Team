@@ -30,14 +30,23 @@ Borrow fees are paid hourly.
 
 More info @ https://poloniex.com/profile/fee-tier/spot-trading
 
-Binance Fee Schedule:\\
-Tier       Volume     Maker/Taker Fee\\
-Tier 0 | <$1M       | 0.10% / 0.10%\\
-Tier 1 | $1M-$5M    | 0.09% / 0.10%\\
-Tier 2 | $5M-$20M   | 0.08% / 0.10%\\
-Tier 3 | $20M-$100M | 0.07% / 0.10%\\
-...\\
-(Many more tiers for higher 30d trading volume)\\
+
+
+Binance Fee Schedule:
+
+Tier       Volume     Maker/Taker Fee
+
+Tier 0 | <$1M       | 0.10% / 0.10%
+
+Tier 1 | $1M-$5M    | 0.09% / 0.10%
+
+Tier 2 | $5M-$20M   | 0.08% / 0.10%
+
+Tier 3 | $20M-$100M | 0.07% / 0.10%
+
+...
+
+(Many more tiers for higher 30d trading volume)
 
 VIP trade volume levels are measured on the basis of the spot trading volume, or whether the futures trading volume meets the standard (Futures trading volume includes USDS-M futures and COIN-M futures) .
 
