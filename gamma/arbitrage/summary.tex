@@ -10,7 +10,7 @@
 
 \section{Problem}
 \subsection{Intro}
-This case study focuses on identifying and capitalizing on a crypto arbitrage opportunity between two exchanges, Poloniex and Binance. We will examine various currency pairs, including DOT/USDT, LTC/USDT, and TRX/USDT. The objective is to analyze indicators that signify arbitrage opportunities, determine their
+This case study focuses on identifying and capitalizing on a crypto arbitrage opportunity between two exchanges, Poloniex and Binance. We will examine various currency pairs, including  . The objective is to analyze indicators that signify arbitrage opportunities, determine their
 duration, and understand the primary driving factors behind them. Additionally, we will explore how to
 leverage illiquidity and strategically build positions on Poloniex for subsequent transfer to Binance. Finally,
 we will consider the required inventory amount to break even on withdrawals.
@@ -20,25 +20,33 @@ The data used in this case study is from the Poloniex and Binance exchanges in t
 \section{Analysis}
 [This section will mostly be used to summarize your findings, maybe add any thing you researched, the models you created to do the analysis, and what you concluded about the different parts of the analysis. Feel free to add more subsections if you did any extra research/analysis.]
 \subsection{Indicators}
-In order to compare arbitrage opportunities accross exchanges we will need a time series of bid/ask data for both exchanges. What would be best is a dataset that contains all orderbook updates for both exchanges. With this we can compare the bid/ask prices of the two exchanges to determine if arbitrage opportunities are possible. We will also have to include trading fees associated with each exchange.
+[The first step in identifying arbitrage opportunities between Poloniex and Binance is to monitor the price differentials of the selected currency pairs across both exchanges. This analysis can be conducted using real-time market data and trading platforms or through third-party tools and APIs.]
+\begin{itemize}
+  \item In order to compare arbitrage opportunities accross exchanges we will need a time series of bid/ask data for both exchanges. What would be best is a dataset that contains all orderbook updates for both exchanges. With this we can compare the bid/ask prices of the two exchanges to determine if arbitrage opportunities are possible. We will also have to include trading fees associated with each exchange.
+\end{itemize}
 \subsection{Duration}
 [By closely monitoring price differentials over time, we can determine the average duration of arbitrage
 opportunities. This analysis will help us estimate the window of time available for executing profitable
 trades.]
 \subsection{Driving Factors}
-- market liquidity: leads to pricing discrepancies
-- regulatory differences: different countries/jurisdictions may have different policies/restrictions that affects the pricing and availabilities for currencies and assets
-- geographical factors: may leads to regulatory differences; also includes time zone differences for example, leading to price disparities during overlappign trading hours
-- technological advancements: technonlogy often increases market efficiency and reduces arbitrage duration
-- market inefficiencies: arbitrage arises when where are some temporary discrepancies in pricing caused by market inefficiency
+[To understand the primary driving factors behind arbitrage opportunities, we must consider several aspects. Factors such as liquidity disparities, trading volumes, market inefficiencies, news events, and regulatory changes can contribute to price differentials across exchanges.]
+\begin{itemize}
+  \item market liquidity: leads to pricing discrepancies
+  \item regulatory differences: different countries/jurisdictions may have different policies/restrictions that affects the pricing and availabilities for currencies and assets
+  \item geographical factors: may leads to regulatory differences; also includes time zone differences for example, leading to price disparities during overlappign trading hours
+  \item technological advancements: technonlogy often increases market efficiency and reduces arbitrage duration
+  \item market inefficiencies: arbitrage arises when where are some temporary discrepancies in pricing caused by market inefficiency
+\end{itemize}
 \subsection{Additional Exchanges}
 - Coinbase Pro, also known as GDAX (Global Digital Asset Exchange)
 - Bitstamp
 - KuCoin
 - OKEx
 \subsection{Illiquidity}
-- Order Book Depth: A deeper order book indicates a higher number of buy and sell orders at various price levels, which generally leads to better liquidity
-- Trading Volume: Higher trading volumes suggest greater market activity and ease of executing trades
+\begin{itemize}
+  \item Order Book Depth: A deeper order book indicates a higher number of buy and sell orders at various price levels, which generally leads to better liquidity
+  \item Trading Volume: Higher trading volumes suggest greater market activity and ease of executing trades
+\end{itemize}
 \subsection{Limitations}
 [In this subsection, explain any limitations of the data or resources or information and any constraints on your analysis.]
 
