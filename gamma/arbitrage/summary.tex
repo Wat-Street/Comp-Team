@@ -57,6 +57,15 @@ perspective on crypto arbitrage opportunities.]
 [In this subsection, explain any limitations of the data or resources or information and any constraints on your analysis.]
 
 \section{Proposed Strategy}
+Websocket stream bid & ask price data from Poloniex and Binance.
+
+Let B_p, A_p denote the bid/ask prices on Poloniex B_b, A_b denote the bid/ask prices on Binance. Denote the trading fee cost in percent as the variable FP, FB for Poloniex and Binance respectively. Denote G to be the constant gas fees or on-chain transfer fees.
+
+Strategy:
+If (A_p * FP) + G < (B_b * (1 - FB)) then go LONG on Poloniex and Short on Binance. Transfer tokens from Poloniex to Binance (cost of G) closing out short position. Profit per token will be [(B_b * (1 - FB))] - [(A_p * FP) + G]. Make sure there is a margin of safety (https://www.investopedia.com/terms/m/marginofsafety.asp) on the trade (i.e only trade when ROI is greater than some predetermined number - this will account for adverse affects during the trade).
+
+
+
 [Insert a quick two lines summarizing your suggested approach. Then in each subsection, explain/expand on the why and ensure your reader knows that your strategy is profitable if it is. Consider talking about the later sections in the original case studies.]
 \subsection{Building Positions}
 [To strategically build positions on Poloniex, we will focus on the currency pairs with the most significant price differentials. By executing buy orders on Poloniex at lower prices and simultaneously placing sell orders on Binance at higher prices, we can capitalize on the price discrepancy.]
