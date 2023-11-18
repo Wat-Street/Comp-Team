@@ -7,7 +7,7 @@ class FeatureTransform:
     Feature transformation and engineering functions. Assume that all inputs have been cleaned, validated,
     and aligned. For example, if a function requires two Series, they must be date and shape aligned.
 
-    All dataframes must have format as follows:
+    All dataframes must have format as follows ("long format"):
     
     date index | ticker | price | market_cap | earnings_per_share | ...
     ----------------------------------------------------------------------
