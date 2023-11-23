@@ -83,7 +83,7 @@ class FeatureTransform:
         if not inplace:
             data = data.copy()
 
-        # TODO: group by 'ticker', apply a rolling Z score for each ticker
+        # TODO: group by date, and Z score normalize the features on each date.
         pass
     
     ############################################
