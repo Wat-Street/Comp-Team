@@ -23,6 +23,10 @@ class FeatureTransform:
     ```
     """
 
+    ############################################
+    # Data Series Transformations
+    ############################################
+    
     @staticmethod
     def rolling_beta(
         security_series: pd.Series, benchmark_series: pd.Series, window: int, min_window_pct: float=0.8
@@ -39,6 +43,30 @@ class FeatureTransform:
         # Beta = Cov(R_p, R_m) / Var(R_m) where R_p is portfolio return, R_m is market (benchmark) return
         betas = return_series.cov(benchmark_return_series) / benchmark_return_series.var()
         return betas
+
+    @staticmethod
+    def percent_from_trailing_max(
+        series: pd.Series, window: int, min_window_pct: float=0.8
+    ) -> pd.Series:
+        assert window > 0
+        assert 0 <= min_window_pct <= 1
+        min_periods = FeatureTransform._get_min_periods_length(window, min_window_pct)
+
+        return series / series.rolling(window, min_periods=min_periods).max() - 1
+
+    @staticmethod
+    def percent_from_trailing_min(
+        series: pd.Series, window: int, min_window_pct: float=0.8
+    ) -> pd.Series:
+        assert window > 0
+        assert 0 <= min_window_pct <= 1
+        min_periods = FeatureTransform._get_min_periods_length(window, min_window_pct)
+
+        return series / series.rolling(window, min_periods=min_periods).min() - 1
+        
+    ############################################
+    # DataFrame Normalization Methods
+    ############################################
 
     @staticmethod
     def rolling_zscore(
