@@ -63,6 +63,22 @@ class FeatureTransform:
         min_periods = FeatureTransform._get_min_periods_length(window, min_window_pct)
 
         return series / series.rolling(window, min_periods=min_periods).min() - 1
+
+    @staticmethod
+    def sma(
+        series: pd.Series, window: int, min_window_pct: float=0.8
+    ) -> pd.Series:
+        """Calculate a simple moving average"""
+        # TODO
+        pass
+
+    @staticmethod
+    def ema(
+        series: pd.Series, window: int, min_window_pct: float=0.8  # TODO: add other params for weights
+    ) -> pd.Series:
+        """Calculate an exponentially-weighted moving average"""
+        # TODO
+        pass
         
     ############################################
     # DataFrame Normalization Methods
