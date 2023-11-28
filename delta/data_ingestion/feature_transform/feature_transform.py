@@ -69,16 +69,32 @@ class FeatureTransform:
         series: pd.Series, window: int, min_window_pct: float=0.8
     ) -> pd.Series:
         """Calculate a simple moving average"""
-        # TODO
-        pass
+        assert window > 0
+        assert 0 <= min_window_pct <= 1
+        min_periods = FeatureTransform._get_min_periods_length(window, min_window_pct)
 
+        return series.rolling(window=window, min_periods=min_periods).mean()
+    
     @staticmethod
     def ema(
-        series: pd.Series, window: int, min_window_pct: float=0.8  # TODO: add other params for weights
+        series: pd.Series, window: int, min_window_pct: float=0.8, adjust: bool = False, halflife: Optional[float] = None, span: Optional[float] = None, com: Optional[float] = None
+        # TODO: add other params for weights
     ) -> pd.Series:
         """Calculate an exponentially-weighted moving average"""
-        # TODO
-        pass
+        assert window > 0
+        assert 0 <= min_window_pct <= 1
+        min_periods = FeatureTransform._get_min_periods_length(window, min_window_pct)
+
+        # Use provided halflife, span, or com if given, otherwise default to window for span
+        if halflife is not None:
+            return series.ewm(halflife=halflife, min_periods=min_periods, adjust=adjust).mean()
+        elif span is not None:
+            return series.ewm(span=span, min_periods=min_periods, adjust=adjust).mean()
+        elif com is not None:
+            return series.ewm(com=com, min_periods=min_periods, adjust=adjust).mean()
+        else:
+            return series.ewm(span=window, min_periods=min_periods, adjust=adjust).mean()
+
         
     ############################################
     # DataFrame Normalization Methods
@@ -106,8 +122,20 @@ class FeatureTransform:
         if not inplace:
             data = data.copy()
 
-        # TODO: group by 'ticker', apply a rolling Z score for each ticker
-        pass
+        # Function to calculate Z-score
+        def rolling_zscore(x):
+            r = x.rolling(window=window, min_periods=min_periods)
+            m = r.mean()
+            s = r.std(ddof=0)
+            z = (x - m) / s
+            return z
+
+        # Apply Z-score function to each group
+        numeric_cols = data.select_dtypes(include='number').columns
+        for col in numeric_cols:
+            data[f'{col}_r_zscore'] = data.groupby(group_column)[col].transform(rolling_zscore)
+
+        return data
 
     @staticmethod
     def cross_sectional_zscore(
@@ -127,8 +155,16 @@ class FeatureTransform:
         if not inplace:
             data = data.copy()
 
-        # TODO: group by date, and Z score normalize the features on each date.
-        pass
+        # group by date, and Z score normalize the features on each date.
+        def zscore(df):
+            return (df - df.mean()) / df.std(ddof=0)
+
+        numeric_cols = data.select_dtypes(include='number').columns
+        for col in numeric_cols:
+            # Assume dataframe is the index 
+            data[f'{col}_zscore'] = data.groupby(level=0)[col].transform(zscore)
+            
+        return data
     
     ############################################
     # Private Methods
